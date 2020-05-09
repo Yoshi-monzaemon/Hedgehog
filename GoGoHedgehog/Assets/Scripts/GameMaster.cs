@@ -8,7 +8,7 @@ public class GameMaster : MonoBehaviour
 {
     public bool goal;
     public static GameMaster instance = null;
-    public int mushi_counter = 0;
+    public int mushiCounter = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +22,7 @@ public class GameMaster : MonoBehaviour
 
     }
 
+    // good Managerクラスはシングルトンにする
     private void Awake()
     {
         if(instance == null)

@@ -19,11 +19,15 @@ public class Timer : MonoBehaviour
 
         if (GameMaster.instance.mushi_counter <3)
         {
-                time += Time.deltaTime;
-        }
-        int t = Mathf.FloorToInt(time);
-        Text uiText = GetComponent<Text>();
-        uiText.text = "Time:" + t;
+            time += Time.deltaTime;
+            // ここは虫を3匹以上捕まえた時点でタイマーが止まるならUIへの表示処理も必要ない。
+            int t = Mathf.FloorToInt(time);
 
+            // Update内にGetComponentは書いてはダメ。
+            // GetComponentは重い処理なので毎フレーム呼ぶとあっという間にアプリがガクつく
+            // 代わりにuiTextをフィールド変数で宣言して、unity側でアタッチするか
+            // Start()で1回だけ取得する
+            uiText.text = "Time:" + t;
+        }
     }
 }
