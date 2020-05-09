@@ -18,6 +18,7 @@ public class GroundCheck : MonoBehaviour
             isGround = false;
         }
 
+        // フィールド変数取得のときに他のパラメータをいじるのはNoGood
         isGroundEnter = false;
         isGroundStay = false;
         isGroundExit = false;

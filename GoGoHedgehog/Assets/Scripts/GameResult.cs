@@ -27,7 +27,7 @@ public class GameResult : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameMaster.instance.mushi_counter == 3)
+        if (GameMaster.instance.mushiCounter == 3)
         {
             resultUI.SetActive(true);
             int result = Mathf.FloorToInt(Timer.time);

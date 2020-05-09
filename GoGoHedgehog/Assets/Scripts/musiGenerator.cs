@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class musiGenerator : MonoBehaviour
+// クラス名は大文字はじまりにする
+// ローマ字はヘボン式
+public class MushiGenerator : MonoBehaviour
 {
     private bool eatenCheck;
     private string Player = "Player";
     public bool mushi_catch = false;
+    public MushiPanel mushiPanel;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,10 +20,11 @@ public class musiGenerator : MonoBehaviour
 
     private void Update()
     {
-        eatenCheck = this.mushiCheck();
+        eatenCheck = mushiCheck();
         if (eatenCheck)
         {
-            GameMaster.instance.mushi_counter++;
+            GameMaster.instance.mushiCounter++;
+            mushiPanel.AddCatchedMushiImage(GameMaster.instance.mushiCounter);
             this.gameObject.SetActive(false);
         };
     }

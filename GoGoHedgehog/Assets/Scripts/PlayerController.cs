@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     private string enemyTag = "Feed";
     private int jumpcount = 0;
     private int mushi_Capture_Counter = 0;
-    private GameObject[] mushi_tachi;
+    private GameObject[] mushiTachi;
     private Camera mainCamera;
     private Rect rect = new Rect(0, 0, 1, 1);
 
@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
         if(s_pushed)
         {
             s_pushed = false;
-            Search_mushi_kun();
+            SearchMushiKun();
         }
     }
 
@@ -102,11 +102,13 @@ public class PlayerController : MonoBehaviour
         jumpcount++;
     }
 
-    private void Search_mushi_kun()
+    // メソッド名の命名規則が統一できていない。  
+    // Unityは基本キャメルケースで書いてあるのでそちらに揃える
+    private void SearchMushiKun()
     {
         int i = 1;
-        mushi_tachi = GameObject.FindGameObjectsWithTag("Feed");
-        foreach(GameObject mushi in mushi_tachi)
+        mushiTachi = GameObject.FindGameObjectsWithTag("Feed");
+        foreach(GameObject mushi in mushiTachi)
         {
             var viewportPos = mainCamera.WorldToViewportPoint(mushi.transform.position);
             if (rect.Contains(viewportPos))
