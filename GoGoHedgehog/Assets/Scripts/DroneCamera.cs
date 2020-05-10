@@ -16,6 +16,6 @@ public class DroneCamera : MonoBehaviour
     void Update()
     {
         Vector3 PlayerPosition = player.transform.position;
-        transform.position = new Vector3(PlayerPosition.x+3, PlayerPosition.y+3,-1);
+        transform.position = new Vector3(PlayerPosition.x, PlayerPosition.y+3,-1);
     }
 }
